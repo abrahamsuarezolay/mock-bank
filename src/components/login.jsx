@@ -5,7 +5,18 @@ export function Login(){
     <div>
         <div>
             <form method="POST">
-                <input type="email" placeholder="Email"></input>
+                <div>
+                    <input type="email" placeholder="Email"></input>
+                </div>
+                <div>
+                    <input type="email" placeholder="Password"></input>
+                </div>
+                <div>
+                    <button type="submit">Login</button>
+                </div>
+                <div>
+                    <p>You still don't have an account? Register here</p>
+                </div>
             </form>
         </div>
     </div>)
