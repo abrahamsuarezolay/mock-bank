@@ -2,7 +2,7 @@
 export function Login(){
 
     return(<div>
-        Hola
+        <p className="text-success">Hola</p>
     </div>)
 
 }
