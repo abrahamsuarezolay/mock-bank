@@ -1,18 +1,20 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from "./components/login"
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
+    <Router>
       <div>
-        <Login />
-        </div>
-    </>
+        <Switch>
+          <Route path="/" component={Login} />
+        </Switch>
+      </div>
+    </Router>
   )
 }
 
