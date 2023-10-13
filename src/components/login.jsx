@@ -1,7 +1,12 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import  db  from "../API/index";
 import { Register } from "./register";
+import { useState } from "react";
 
 export function Login(){
+
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
 
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
