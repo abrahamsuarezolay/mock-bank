@@ -3,7 +3,11 @@ export function Login(){
 
     return(
     <div>
-        <p className="text-success">Hola</p>
+        <div>
+            <form method="POST">
+                <input type="email" placeholder="Email"></input>
+            </form>
+        </div>
     </div>)
 
 }
