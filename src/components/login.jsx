@@ -1,4 +1,5 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { Register } from "./register";
 
 export function Login(){
 
@@ -32,6 +33,7 @@ export function Login(){
                     <p>You still don't have an account? Register here</p>
                 </div>
             </form>
+            <Register />
         </div>
     </div>)
 
