@@ -1,6 +1,12 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import  db  from "../API/index";
+import { Register } from "./register";
+import { useState } from "react";
 
 export function Login(){
+
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
 
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
@@ -32,6 +38,7 @@ export function Login(){
                     <p>You still don't have an account? Register here</p>
                 </div>
             </form>
+            <Register />
         </div>
     </div>)
 
