@@ -45,7 +45,7 @@ export function Register(){
     return(
      <div>
         <div>
-            <form method="POST">
+            <form method="POST" onSubmit={registerUser}>
                 <div>
                     <input type="text" placeholder="Name" value={name} onChange={handleNameChange}></input>
                 </div>
@@ -53,7 +53,7 @@ export function Register(){
                     <input type="email" placeholder="Email" value={email} onChange={handleEmailChange}></input>
                 </div>
                 <div>
-                    <input type="email" placeholder="Password" value={password} onChange={handlePasswordChange}></input>
+                    <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange}></input>
                 </div>
                 <div>
                     <button type="submit">Register</button>
