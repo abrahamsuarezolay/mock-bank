@@ -1,0 +1,31 @@
+.account-container { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    border: solid rgb(255, 255, 255) 1px;
+    margin-top: 1%;
+}
+
+.account-left {
+    display: flex;
+    flex-direction: column;
+    margin: 1% 0% 0% 2%;
+}
+
+.account-right{
+    display: flex;
+    flex-direction: column;
+    margin: 1% 2% 0% 0%;
+}
+
+.account-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-buttons button{
+   
+}

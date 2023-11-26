@@ -1,0 +1,90 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+}
+
+.form-container.hide {
+    animation-name: hide-login-form;
+    animation-duration: .2s;
+    opacity: 0;
+  }
+
+@keyframes hide-login-form{
+    0%{
+        opacity: 1;
+    }
+    20%{
+        opacity: 0.8;
+    }
+    40%{
+        opacity: 0.6;
+    }
+    60%{
+        opacity: 0.4;
+    }   
+    80%{
+        opacity: 0.2;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
+}
+
+.form-field {
+    width: 80%;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.form-field label {
+    margin-bottom: 1%;
+}
+
+.form-field input {
+    background-color: rgb(37, 37, 37);
+    ;
+    border-radius: 3px;
+    padding: 3.5%;
+    border: solid rgba(255, 255, 255, 0.566) 1px;
+    color: white;
+}
+
+.login-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+.login-button button{
+    width: 80%;
+    padding: 3%;
+    border-radius: 30px;
+    border: none;
+}
+
+.register-button{
+
+}
+
+.register-button button{
+    background-color: transparent;
+    border: none;
+    color: inherit;
+}
