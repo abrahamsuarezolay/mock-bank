@@ -1,4 +1,4 @@
-import { collection, doc, setDoc, getDocs, onSnapshot } from 'firebase/firestore';
+import { collection, doc, setDoc, getDocs, onSnapshot, getDoc } from 'firebase/firestore';
 import { db, auth } from '../API';
 import { accountNumberGenerator } from '../util/numberGenerator';
 
@@ -6,9 +6,6 @@ const usersColl = collection(db, "users")
 
 //Service to add a bank account to an existing user
 export const addAccount = async (userEmail, accountName) => {
-
-  console.log(userEmail)
-
   const userDocRef = doc(usersColl, userEmail);
   const accountsColl = collection(userDocRef, "accounts");
 
@@ -19,8 +16,6 @@ export const addAccount = async (userEmail, accountName) => {
     accountName: accountName,
     balance: 0
   });
-
-  console.log("Created account")
 }
 
 
@@ -29,19 +24,22 @@ export const getAllAccountsData = async (userEmail) => {
   let accounts = [];
 
   const userDocRef = doc(usersColl, userEmail);
-  const querySnapshot = await getDocs(collection(userDocRef, "accounts"));
-  querySnapshot.forEach((doc) => {
+  const accountsCollection = collection(userDocRef, "accounts");
+
+  const accountsDocs = await getDocs(accountsCollection);
+  accountsDocs.forEach((doc) => {
     accounts.push(doc.data());
-  });
-  return accounts;
-}
+  })
 
-export const listenerUpdatesAccounts = async (userEmail) => {
-  let accounts = [];
+  const unsubscribe = onSnapshot(accountsCollection, (snapshot) => {
 
-  const userDocRef = doc(usersColl, userEmail);
+    console.log("Update")
 
-  const unsubscribe = onSnapshot()
+    accounts = []
+    snapshot.forEach((doc) => {
+      accounts.push(doc.data());
+    });
+  })  
 
-  return accounts;
+  return {accounts, unsubscribe};
 }
