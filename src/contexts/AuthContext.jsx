@@ -78,6 +78,7 @@ const AuthProvider = ({ children }) => {
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
+            setUser({name: '', email: '', password: '',})
             console.log("Sing out")
             navigate("/")
           }).catch((error) => {

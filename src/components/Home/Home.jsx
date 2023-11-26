@@ -13,6 +13,12 @@ const Home = () => {
     const { accountsData, getAccountsData } = useContext(DataContext)
     
     handleSession();
+
+    const [activeComponent, setActiveComponent] = useState(null)
+
+    const handleComponentDisplay = (component) => {
+        setActiveComponent(component);
+    };
    
     return (
         <>
@@ -26,10 +32,13 @@ const Home = () => {
                     </div>
                 </header>
                 <div>
-                    <Navbar handleSignOut={handleSignOut}/>
+                    <Navbar 
+                    handleSignOut={handleSignOut}
+                    handleComponentDisplay={handleComponentDisplay} />
                 </div>
                 <div className="component-container">
-                    <AccountsMenu />
+                    
+                    {activeComponent === "accounts" && <AccountsMenu />}
                 </div>
                 </>
             )}

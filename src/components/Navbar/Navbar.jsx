@@ -5,15 +5,15 @@ import transfer from "./../../assets/svg/transfer.svg"
 import exit from "./../../assets/svg/exit.svg"
 import "./Navbar.css"
 
-const Navbar = ({handleSignOut}) => {
+const Navbar = ({handleSignOut, handleComponentDisplay}) => {
 
     return(
         <div className="navbar-container">
             <ul className="navbar-list">
-                <li><img src={home} /></li>
-                <li><img src={accounts} /></li>
-                <li><img src={transfer} /></li>
-                <li><img src={gear} /></li>
+                <li><img src={home} onClick={()=>{handleComponentDisplay("home")}}/></li>
+                <li><img src={accounts} onClick={()=>{handleComponentDisplay("accounts")}}/></li>
+                <li><img src={transfer} onClick={()=>{handleComponentDisplay("transfer")}}/></li>
+                <li><img src={gear} onClick={()=>{handleComponentDisplay("settings")}}/></li>
                 <li><img src={exit} onClick={handleSignOut}/></li>
             </ul>
         </div>

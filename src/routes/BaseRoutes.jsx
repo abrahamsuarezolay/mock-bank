@@ -3,6 +3,7 @@ import AuthContext, { AuthProvider } from "../contexts/AuthContext";
 import LoginForm from '../components/Login/LoginForm/LoginForm';
 import Home from '../components/Home/Home';
 import Register from '../components/Login/RegisterForm/Register';
+import Accounts from '../components/AccountsMenu/AccountsMenu';
 import { useContext } from 'react';
 import ProtectedRoute from './ProtectedRoute';
 const BaseRoutes = () => {
