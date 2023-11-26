@@ -1,4 +1,4 @@
-import { collection, doc, setDoc, getDocs, onSnapshot, getDoc } from 'firebase/firestore';
+import { collection, doc, setDoc, getDocs, onSnapshot, getDoc, updateDoc } from 'firebase/firestore';
 import { db, auth } from '../API';
 import { accountNumberGenerator } from '../util/numberGenerator';
 
@@ -18,27 +18,35 @@ export const addAccount = async (userEmail, accountName) => {
   });
 }
 
-
-export const getAllAccountsData = async (userEmail) => {
-
-  let accounts = [];
+export const addFunds = async (userEmail, accountNumber, quantity) => {
 
   const userDocRef = doc(usersColl, userEmail);
-  const accountsCollection = collection(userDocRef, "accounts");
+  const accountsColl = collection(userDocRef, "accounts");
+  const accountRef = doc(accountsColl, accountNumber);
+  const accountDoc = await getDoc(accountRef, accountNumber);
 
-  const accountsDocs = await getDocs(accountsCollection);
-  accountsDocs.forEach((doc) => {
-    accounts.push(doc.data());
-  })
+  let initialBalance = accountDoc.data().balance;
 
-  const unsubscribe = onSnapshot(accountsCollection, (snapshot) => {
+  console.log(initialBalance)
 
-    console.log("Update")
+  await updateDoc(accountRef, {
+    balance: initialBalance + quantity
+  });
 
-    accounts = []
-    snapshot.forEach((doc) => {
-      accounts.push(doc.data());
-    });
-  })  
+}
 
+export const withdraw = async (userEmail, accountNumber, quantity) => {
+
+  const userDocRef = doc(usersColl, userEmail);
+  const accountsColl = collection(userDocRef, "accounts");
+  const accountRef = doc(accountsColl, accountNumber);
+  const accountDoc = await getDoc(accountRef, accountNumber);
+
+  let initialBalance = accountDoc.data().balance;
+
+  console.log(initialBalance)
+
+  await updateDoc(accountRef, {
+    balance: initialBalance - quantity
+  });
 }

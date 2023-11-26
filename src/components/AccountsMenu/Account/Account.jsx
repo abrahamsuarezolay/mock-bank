@@ -1,20 +1,19 @@
 import "./Account.css"
+import { addFunds, withdraw } from "../../../service/accountsService"
 
-const Account = ({accountData}) => {
+const Account = ({user, accountData}) => {
 
     return (
         <div className="account-container">
             <div className="account-left">
-                <h5>Account name</h5>
-                <p>{accountData.accountName}</p>
-                <p>{accountData.balance}</p>
+                <p>Name: {accountData.accountName}</p>
+                <p>Current balance: {accountData.balance}</p>
             </div>
             <div className="account-right">
-                <h5>Account number</h5>
-                <p>{accountData.accountNumber}</p>
+                <p>Account number: {accountData.accountNumber}</p>
                 <div className="account-buttons">
-                    <button type="button">Withdraw</button>
-                    <button type="button">Add funds</button>
+                    <button type="button" onClick={()=>{withdraw(user.email, accountData.accountNumber, 1000)}}>Withdraw</button>
+                    <button type="button" onClick={()=>{addFunds(user.email, accountData.accountNumber, 1000)}}>Add funds</button>
                 </div>
             </div>
         </div>

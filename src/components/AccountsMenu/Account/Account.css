@@ -4,7 +4,7 @@
     justify-content: space-between;
     width: 90%;
     border: solid rgb(255, 255, 255) 1px;
-    margin-top: 1%;
+    margin: 1% 0% 1% 0%;
 }
 
 .account-left {
@@ -22,10 +22,10 @@
 .account-buttons {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 }
 
 .account-buttons button{
-   
+    margin-left: 5%;
 }

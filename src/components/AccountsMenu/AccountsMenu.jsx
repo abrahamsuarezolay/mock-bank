@@ -27,7 +27,7 @@ const Accounts = () => {
             <div className="accounts-container">
                 <div className="accounts-list-container">
                     {accountsData.map((account, index) => (
-                        <Account key={index} accountData={account} />
+                        <Account key={index} user={user} accountData={account} />
                     ))}
                 </div>
                 <div className="add-account-container">
