@@ -1,0 +1,31 @@
+
+.amount-overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.amount-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(37, 37, 37);
+    width: 20%;
+    height: 20%;
+    border-radius: 3px;
+    border: solid white 1px;
+}
+
+.amount-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

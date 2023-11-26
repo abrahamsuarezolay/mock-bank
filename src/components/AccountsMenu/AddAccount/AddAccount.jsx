@@ -24,8 +24,8 @@ const AddAccount = ({ user, onClose }) => {
                 <p>Please, enter a name for your account</p>
                 <input type="text" name="account-name" placeholder="Account name" onChange={handleAccountNameChange}></input>
                 <div className="add-account-buttons">
-                    <button type="submit" onClick={handleAddAccount}>Add Account</button>
-                    <button type="submit" onClick={onClose}>Back</button>
+                    <button type="button" onClick={handleAddAccount}>Add Account</button>
+                    <button type="button" onClick={onClose}>Back</button>
                 </div>
             </div>
         </div>
