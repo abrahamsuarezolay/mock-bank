@@ -41,5 +41,4 @@ export const getAllAccountsData = async (userEmail) => {
     });
   })  
 
-  return {accounts, unsubscribe};
 }
