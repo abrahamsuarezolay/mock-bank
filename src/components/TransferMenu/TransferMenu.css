@@ -1,22 +1,13 @@
-.status-container {
+.transfer-menu-container {
     display: flex;
     flex-direction: column;
-    width: 90%;
-    height: 100%;
     margin: 4%;
     animation: load .4s;
 }
 
-.up-part-container {
+.transfer-menu-up {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 1% 3% 0% 3%;
-}
-
-.balance-display {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: end;
 }
