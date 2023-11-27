@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState({
-        name: '',
+        username: '',
         email: '',
         password: '',
     });
@@ -29,8 +29,11 @@ const AuthProvider = ({ children }) => {
 
         signInWithEmailAndPassword(auth, user.email, user.password)
             .then((userCredential) => {
-                // Signed in 
-                console.log("Usuario logueado!")
+
+                setUser({
+                    ...user,
+                    username: auth.currentUser.displayName
+                })
                 navigate("/home")
             })
             .catch((error) => {
@@ -46,11 +49,10 @@ const AuthProvider = ({ children }) => {
 
         createUserWithEmailAndPassword(auth, user.email, user.password)
             .then((userCredential) => {
-                // Signed up 
-                const user = userCredential.user;
-                // ...
-                updateProfile(user, {
-                    displayName: user.name,
+
+                //Adds displayname on register
+                updateProfile(userCredential.user, {
+                    displayName: user.username,
                 })
 
                 addUserToCollection();

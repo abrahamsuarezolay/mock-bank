@@ -13,7 +13,7 @@ const AddAccount = ({ user, onClose }) => {
     }
 
     const handleAddAccount = (e) => {
-        console.log(user)
+console.log(user)
         e.preventDefault()
         addAccount(user.email, accountName)
     }

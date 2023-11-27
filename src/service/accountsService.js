@@ -50,3 +50,15 @@ export const withdraw = async (userEmail, accountNumber, quantity) => {
     balance: initialBalance - quantity
   });
 }
+
+export const getTotalSavingsInAllAccounts = (accountsData) => {
+
+  let total = 0;
+  
+  accountsData.forEach(account => {
+    total += account.balance;
+  });
+
+  return total;
+
+}

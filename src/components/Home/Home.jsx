@@ -5,6 +5,7 @@ import AuthContext from "../../contexts/AuthContext";
 import Navbar from "../Navbar/Navbar";
 import AccountsMenu from "../AccountsMenu/AccountsMenu";
 import DataContext from "../../contexts/DataContext";
+import StatusMenu from "../StatusMenu/StatusMenu";
 
 
 const Home = () => {
@@ -14,7 +15,7 @@ const Home = () => {
     
     handleSession();
 
-    const [activeComponent, setActiveComponent] = useState(null)
+    const [activeComponent, setActiveComponent] = useState("status")
 
     const handleComponentDisplay = (component) => {
         setActiveComponent(component);
@@ -37,7 +38,7 @@ const Home = () => {
                     handleComponentDisplay={handleComponentDisplay} />
                 </div>
                 <div className="component-container">
-                    
+                    {activeComponent === "status" && <StatusMenu />}
                     {activeComponent === "accounts" && <AccountsMenu />}
                 </div>
                 </>

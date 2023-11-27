@@ -10,7 +10,7 @@ const Navbar = ({handleSignOut, handleComponentDisplay}) => {
     return(
         <div className="navbar-container">
             <ul className="navbar-list">
-                <li><img src={home} onClick={()=>{handleComponentDisplay("home")}}/></li>
+                <li><img src={home} onClick={()=>{handleComponentDisplay("status")}}/></li>
                 <li><img src={accounts} onClick={()=>{handleComponentDisplay("accounts")}}/></li>
                 <li><img src={transfer} onClick={()=>{handleComponentDisplay("transfer")}}/></li>
                 <li><img src={gear} onClick={()=>{handleComponentDisplay("settings")}}/></li>
