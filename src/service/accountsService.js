@@ -62,3 +62,13 @@ export const getTotalSavingsInAllAccounts = (accountsData) => {
   return total;
 
 }
+
+export const findAccountByUserAndId = async (userEmail, accountId) => {
+
+  const userDocRef = doc(usersColl, userEmail);
+  const accountsColl = collection(userDocRef, "accounts");
+  const accountRef = doc(accountsColl, accountId);
+  const accountDoc = await getDoc(accountRef, accountId);
+
+  console.log(accountDoc.data())
+};
