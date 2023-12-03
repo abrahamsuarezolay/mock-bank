@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { findAccountById } from "../service/accountsService";
+import { findAccountByUserAndId } from "../service/accountsService";
 
 
 const useTransfer = () => {
@@ -21,7 +21,6 @@ const useTransfer = () => {
     const handleTransfer = (e) => {
         e.preventDefault()
         const receiverAccountData = findAccountByUserAndId(transfer.receiverEmail, transfer.receiverAccount);
-
         //WE GOT THE RECEIVER DATA.
         
     }
