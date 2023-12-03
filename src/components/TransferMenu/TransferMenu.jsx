@@ -2,11 +2,12 @@ import { useContext } from "react";
 import DataContext from "../../contexts/DataContext";
 import "./TransferMenu.css"
 import useTransfer from "../../hooks/useTransfer";
+import { ErrorComponent } from "../Error/ErrorComponent";
 
 const TransferMenu = () => {
 
     const { accountsData } = useContext(DataContext);
-    const { handleChange, handleTransfer } = useTransfer();
+    const { handleChange, handleTransfer, errorInput, setErrorInput } = useTransfer();
 
     return(
         <form method="POST" id="transferForm" onSubmit={handleTransfer}>
@@ -30,6 +31,11 @@ const TransferMenu = () => {
                 <label htmlFor="amount">Introduce the amount to transfer</label>
                 <input type="number" name="amount" onChange={handleChange}/>
                 <button type="submit">Transfer</button>
+                {errorInput.display ? (
+                    <ErrorComponent type="text" message={errorInput.message}/>
+                ) : (
+                    <></>
+                )}
             </div>
         </div>
         </form>

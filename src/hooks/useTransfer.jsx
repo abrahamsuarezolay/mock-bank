@@ -6,13 +6,17 @@ import AuthContext from "../contexts/AuthContext";
 const useTransfer = () => {
 
     const { user } = useContext(AuthContext);
-
     const [transferInfo, setTransfer] = useState({
         senderAccount: "",
         receiverEmail: "",
         receiverAccount: "",
         amount: 0
     })
+
+    const [errorInput, setErrorInput] = useState({
+        display: false,
+        message: ""
+    });
 
     const handleChange = (e) => {
         setTransfer({
@@ -21,11 +25,47 @@ const useTransfer = () => {
         })
     }
 
+    const handleError = (type) => {
+
+        switch(type){
+            case "amountzero":
+                setErrorInput({
+                    display: true,
+                    message: "The amount must be above zero."
+                })
+                break;
+            case "sameAccount":
+                setErrorInput({
+                display: true,
+                message: "The sender and the receiver account are the same."
+                })
+                break;
+             case "accountNonExist":
+                 setErrorInput({
+                 display: true,
+                 message: "There is an error in the receiver information. Please review the information and try again."
+                 })
+                 break;
+        }
+    }
+
     const handleTransfer = async (e) => {
         e.preventDefault()
-        transfer(user, transferInfo)
-        //WE GOT THE RECEIVER DATA.
-        
+
+        if(transferInfo.amount <= 0){
+            return handleError("amountZero")
+        }else if(transferInfo.receiverAccount == transferInfo.senderAccount){
+            return handleError("sameAccount")
+        }
+
+        try{
+            await transfer(user, transferInfo)
+            setErrorInput({display: false})
+        }catch(err){
+            return handleError("accountNonExist")
+            
+        }
+     
     }
 
     useEffect(() => {
@@ -46,7 +86,7 @@ const useTransfer = () => {
         }
     }, []);
 
-    return { handleChange, handleTransfer }
+    return { handleChange, handleTransfer, errorInput, setErrorInput }
 
 }
 
