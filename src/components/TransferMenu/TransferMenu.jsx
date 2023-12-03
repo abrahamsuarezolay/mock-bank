@@ -28,7 +28,7 @@ const TransferMenu = () => {
             </div>
             <div className="transfer-menu-input">
                 <label htmlFor="amount">Introduce the amount to transfer</label>
-                <input type="text" name="amount" onChange={handleChange}/>
+                <input type="number" name="amount" onChange={handleChange}/>
                 <button type="submit">Transfer</button>
             </div>
         </div>
