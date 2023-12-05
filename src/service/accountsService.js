@@ -60,7 +60,10 @@ export const getTotalSavingsInAllAccounts = (accountsData) => {
   });
 
   return total;
+}
 
+export const getSavingsInAccount = () => {
+  
 }
 
 export const findAccountByUserAndId = async (userEmail, accountId) => {

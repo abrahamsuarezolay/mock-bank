@@ -15,7 +15,6 @@ export const updateReceiverBalance = async (accountRef, amount) => {
         });
 
     } catch (err) {
-        console.log(err)
         throw err;
     }
 
@@ -47,7 +46,6 @@ export const transfer = async (user, transfer) => {
         await updateSenderBalance(senderAccountRef, transfer.amount)
 
     } catch (err) {
-        console.log(err.message)
         throw err;
     }
 }
