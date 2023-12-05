@@ -1,13 +1,12 @@
 import { useContext, useState } from "react";
 import { db, auth } from "../../../API/index"
 import AuthContext from "../../../contexts/AuthContext";
+import { ErrorComponent } from "../../Error/ErrorComponent";
 import "./Register.css"
 
 const Register = ({ closeRegister }) => {
 
-    const { handleChange, handleRegister } = useContext(AuthContext);
-
-    const [registerError, setRegisterError] = useState(false);
+    const { handleChange, handleRegister, errorInput } = useContext(AuthContext);
 
     return (
         <div className="overlay">
@@ -28,6 +27,11 @@ const Register = ({ closeRegister }) => {
                     <div className="register">
                         <button type="submit">Register</button>
                         <button type="button" onClick={closeRegister}>Back</button>
+                        {errorInput.display ? (
+                            <ErrorComponent type="text" message={errorInput.message} />
+                        ) : (
+                            <></>
+                        )}
                     </div>
                 </form>
             </div>

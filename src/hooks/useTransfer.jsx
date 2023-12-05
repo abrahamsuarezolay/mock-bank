@@ -1,22 +1,21 @@
 import { useState, useContext, useEffect } from "react";
 import { transfer } from "../service/transferService";
 import AuthContext from "../contexts/AuthContext";
+import useError from "./useError";
 
 
 const useTransfer = () => {
 
     const { user } = useContext(AuthContext);
+    const { errorInput, setErrorInput } = useError();
+
+
     const [transferInfo, setTransfer] = useState({
         senderAccount: "",
         receiverEmail: "",
         receiverAccount: "",
         amount: 0
     })
-
-    const [errorInput, setErrorInput] = useState({
-        display: false,
-        message: ""
-    });
 
     const handleChange = (e) => {
         setTransfer({

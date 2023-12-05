@@ -4,10 +4,13 @@ import { db, auth } from '../API';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { collection, setDoc, doc, addDoc } from "firebase/firestore";
+import useError from '../hooks/useError';
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+
+    const { errorInput, setErrorInput } = useError();
 
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true)
@@ -37,6 +40,10 @@ const AuthProvider = ({ children }) => {
                 navigate("/home")
             })
             .catch((error) => {
+                setErrorInput({
+                    display: true,
+                    message: "The credentials are wrong!"
+                })
                 const errorCode = error.code;
                 const errorMessage = error.message;
             });
@@ -60,7 +67,12 @@ const AuthProvider = ({ children }) => {
                 console.log("usuario registrado con exito");
             })
             .catch((error) => {
-                console.log(error.code + " " + error.message);
+                if(error.code === "auth/email-already-in-use"){
+                    setErrorInput({
+                        display: true,
+                        message: "The email address is already in use. Please, use another email address."
+                    })
+                }
             });
     }
 
@@ -82,6 +94,7 @@ const AuthProvider = ({ children }) => {
         signOut(auth).then(() => {
             setUser({name: '', email: '', password: '',})
             console.log("Sing out")
+            setErrorInput({display: false})
             navigate("/")
           }).catch((error) => {
          
@@ -109,7 +122,9 @@ const AuthProvider = ({ children }) => {
                 handleSignOut,
                 handleSession,
                 loading,
-                auth
+                auth,
+                errorInput,
+                setErrorInput
             }}
         >
             {children}
