@@ -27,10 +27,8 @@ export const addFunds = async (userEmail, accountNumber, quantity) => {
 
   let initialBalance = accountDoc.data().balance;
 
-  console.log(initialBalance)
-
   await updateDoc(accountRef, {
-    balance: initialBalance + quantity
+    balance: initialBalance + parseFloat(quantity)
   });
 
 }
@@ -47,7 +45,7 @@ export const withdraw = async (userEmail, accountNumber, quantity) => {
   console.log(initialBalance)
 
   await updateDoc(accountRef, {
-    balance: initialBalance - quantity
+    balance: initialBalance - parseFloat(quantity)
   });
 }
 
