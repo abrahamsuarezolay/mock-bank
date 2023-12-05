@@ -30,7 +30,7 @@ const Home = () => {
                 <>
                 <header>
                     <div className="welcome-container">
-                        <h1 className="welcome">Welcome {user.name}</h1>
+                        <h1 className="welcome">Welcome {user.username}</h1>
                     </div>
                 </header>
                 <div>
