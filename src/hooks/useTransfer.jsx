@@ -8,6 +8,7 @@ const useTransfer = () => {
 
     const { user } = useContext(AuthContext);
     const { errorInput, setErrorInput } = useError();
+    const [ successMessage, setSuccessMessage ] = useState(false);
 
 
     const [transferInfo, setTransfer] = useState({
@@ -68,11 +69,13 @@ const useTransfer = () => {
         try {
             await transfer(user, transferInfo)
             setErrorInput({ display: false })
+            setSuccessMessage(true);
         } catch (err) {
             if (err.message === 'Insufficient funds for the transfer') {
                 // Handle insufficient funds error
                 return handleError("Insufficient funds for the transfer")
             } else {
+                console.log(err)
                 return handleError("accountNonExist")
             }
         }
@@ -97,7 +100,7 @@ const useTransfer = () => {
         }
     }, []);
 
-    return { handleChange, handleTransfer, errorInput, setErrorInput }
+    return { handleChange, handleTransfer, errorInput, successMessage }
 
 }
 

@@ -7,7 +7,7 @@ import { ErrorComponent } from "../Error/ErrorComponent";
 const TransferMenu = () => {
 
     const { accountsData } = useContext(DataContext);
-    const { handleChange, handleTransfer, errorInput, setErrorInput } = useTransfer();
+    const { handleChange, handleTransfer, errorInput, successMessage } = useTransfer();
 
     return(
         <form method="POST" id="transferForm" onSubmit={handleTransfer}>
@@ -31,6 +31,11 @@ const TransferMenu = () => {
                 <label htmlFor="amount">Introduce the amount to transfer</label>
                 <input type="number" name="amount" onChange={handleChange}/>
                 <button type="submit">Transfer</button>
+                {successMessage ? (
+                    <p>Transfer completed!</p>
+                ) : (
+                    <></>
+                )}
                 {errorInput.display ? (
                     <ErrorComponent type="text" message={errorInput.message}/>
                 ) : (
