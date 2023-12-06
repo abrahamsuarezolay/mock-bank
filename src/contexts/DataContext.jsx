@@ -22,7 +22,7 @@ const DataProvider = ({ children }) => {
         accountsDocs.forEach((doc) => {
           accounts.push(doc.data());
         })
-      
+
         const unsubscribe = onSnapshot(accountsCollection, (snapshot) => {
       
           console.log("Update")
@@ -31,6 +31,9 @@ const DataProvider = ({ children }) => {
           snapshot.forEach((doc) => {
             accounts.push(doc.data());
           });
+
+          // Filter out the initial account, by its uniqueIdentifier
+          accounts = accounts.filter(account => account.id !== 'InitialAccountNotForUse');
 
           setAccountsData(accounts);
         }) 

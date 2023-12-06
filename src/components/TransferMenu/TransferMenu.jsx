@@ -14,7 +14,7 @@ const TransferMenu = () => {
         <div className="transfer-menu-container">
             <div className="transfer-menu-up">
                 <div className="your-account">
-                <h5>Your account</h5>
+                <h5>Your accounts</h5>
                 <select form="transferForm" name="senderAccount" onChange={handleChange} required>
                     {accountsData.map((account) => {
                        return <option key={account.accountNumber} value={account.accountNumber}>{account.accountName + ": " + account.accountNumber}</option> 
@@ -22,7 +22,7 @@ const TransferMenu = () => {
                 </select>
                 </div>
                 <div className="destination-account">
-                <h5>Destination</h5>
+                <h5>Destination account</h5>
                 <input type="text" name="receiverEmail"  onChange={handleChange} placeholder="Email" />
                 <input type="text" name="receiverAccount"  onChange={handleChange} placeholder="Account number" />
                 </div>

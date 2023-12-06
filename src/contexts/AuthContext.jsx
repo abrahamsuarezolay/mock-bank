@@ -97,7 +97,8 @@ const AuthProvider = ({ children }) => {
 
         const accountsColl = collection(userDocRef, 'accounts');
         await addDoc(accountsColl, {
-
+            id: "InitialAccountNotForUse",
+            balance: 0
         });
     }
 
