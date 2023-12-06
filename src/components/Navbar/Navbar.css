@@ -3,13 +3,13 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgb(37, 37, 37);
+    background-color: transparent;
     justify-content: center;
     display: flex;
     flex-direction: column;
     width: 3%;
     height: 100%;
-    box-shadow: 0 0 2px rgba(255, 255, 255, 0.75);
+    box-shadow: 0 0 4px rgba(255, 255, 255, 1);
 }
 
 .navbar-list{
