@@ -60,7 +60,9 @@ export const getTotalSavingsInAllAccounts = (accountsData) => {
   return total;
 }
 
-export const getSavingsInAccount = () => {
+export const getSavingsInAccount = async (accountRef) => {
+  const accountData = await getDoc(accountRef)
+  return accountData.data().balance;
   
 }
 

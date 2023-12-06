@@ -26,7 +26,7 @@ const useTransfer = () => {
 
     const handleError = (type) => {
 
-        switch(type){
+        switch (type) {
             case "amountzero":
                 setErrorInput({
                     display: true,
@@ -35,36 +35,48 @@ const useTransfer = () => {
                 break;
             case "sameAccount":
                 setErrorInput({
-                display: true,
-                message: "The sender and the receiver account are the same."
+                    display: true,
+                    message: "The sender and the receiver account are the same."
                 })
                 break;
-             case "accountNonExist":
-                 setErrorInput({
-                 display: true,
-                 message: "There is an error in the receiver information. Please review the information and try again."
-                 })
-                 break;
+            case "accountNonExist":
+                setErrorInput({
+                    display: true,
+                    message: "There is an error in the receiver information. Please review the information and try again."
+                })
+                break;
+            case "Insufficient funds for the transfer":
+                setErrorInput({
+                    display: true,
+                    message: "Insufficient funds for the transfer in the sender account."
+                })
+                break;
         }
     }
 
     const handleTransfer = async (e) => {
         e.preventDefault()
 
-        if(transferInfo.amount <= 0){
+        setErrorInput({display: false})
+
+        if (transferInfo.amount <= 0) {
             return handleError("amountZero")
-        }else if(transferInfo.receiverAccount == transferInfo.senderAccount){
+        } else if (transferInfo.receiverAccount == transferInfo.senderAccount) {
             return handleError("sameAccount")
         }
 
-        try{
+        try {
             await transfer(user, transferInfo)
-            setErrorInput({display: false})
-        }catch(err){
-            return handleError("accountNonExist")
-            
+            setErrorInput({ display: false })
+        } catch (err) {
+            if (err.message === 'Insufficient funds for the transfer') {
+                // Handle insufficient funds error
+                return handleError("Insufficient funds for the transfer")
+            } else {
+                return handleError("accountNonExist")
+            }
         }
-     
+
     }
 
     useEffect(() => {
