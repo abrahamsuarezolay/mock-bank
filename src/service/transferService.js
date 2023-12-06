@@ -39,11 +39,15 @@ export const updateSenderBalance = async (accountRef, amount) => {
 export const transfer = async (user, transfer) => {
 
     try {
-        const receiverAccountRef = await findAccountByUserAndId(transfer.receiverEmail, transfer.receiverAccount);
         const senderAccountRef = await findAccountByUserAndId(user.email, transfer.senderAccount);
+        const receiverAccountRef = await findAccountByUserAndId(transfer.receiverEmail, transfer.receiverAccount);
+        
+        if (senderAccountRef.balance < transfer.amount) {
+            throw new InsufficientFundsError('Insufficient funds for the transfer');
+          }
 
-        await updateReceiverBalance(receiverAccountRef, transfer.amount);
         await updateSenderBalance(senderAccountRef, transfer.amount)
+        await updateReceiverBalance(receiverAccountRef, transfer.amount);
 
     } catch (err) {
         throw err;
