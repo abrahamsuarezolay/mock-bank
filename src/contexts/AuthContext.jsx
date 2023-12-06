@@ -1,9 +1,9 @@
 // AuthContext.js
 import React, { createContext, useState } from 'react';
 import { db, auth } from '../API';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "firebase/auth";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, sendPasswordResetEmail } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-import { collection, setDoc, doc, addDoc } from "firebase/firestore";
+import { collection, setDoc, doc, addDoc, getDoc } from "firebase/firestore";
 import useError from '../hooks/useError';
 
 const AuthContext = createContext();
@@ -14,6 +14,7 @@ const AuthProvider = ({ children }) => {
 
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true)
+    const [successMessage, setSuccessMessage] = useState(false)
     const [user, setUser] = useState({
         username: '',
         email: '',
@@ -67,7 +68,7 @@ const AuthProvider = ({ children }) => {
                 console.log("usuario registrado con exito");
             })
             .catch((error) => {
-                if(error.code === "auth/email-already-in-use"){
+                if (error.code === "auth/email-already-in-use") {
                     setErrorInput({
                         display: true,
                         message: "The email address is already in use. Please, use another email address."
@@ -92,13 +93,13 @@ const AuthProvider = ({ children }) => {
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
-            setUser({name: '', email: '', password: '',})
+            setUser({ name: '', email: '', password: '', })
             console.log("Sing out")
-            setErrorInput({display: false})
+            setErrorInput({ display: false })
             navigate("/")
-          }).catch((error) => {
-         
-          });
+        }).catch((error) => {
+
+        });
     }
 
     const handleSession = () => {
@@ -109,6 +110,39 @@ const AuthProvider = ({ children }) => {
                 navigate("/")
             }
         })
+    }
+
+    const checkIfUserExists = async (email) => {
+        const userRef = doc(db, "users", email)
+        const userData = await getDoc(userRef);
+
+        if(userData.data()!=undefined){
+            return true;
+        }else{
+            return false;
+        }
+    }
+ 
+    const handlePasswordReset = async (e) => {
+        e.preventDefault()
+
+        if(await checkIfUserExists(user.email)){
+            sendPasswordResetEmail(auth, user.email)
+            .then(() => {
+                console.log("Password reset sent")
+                setSuccessMessage(true);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });  
+        }else{
+            setErrorInput({
+                display: true,
+                message: "That email doesn't correspond with any user in the database."
+            })
+        }
     }
 
     return (
@@ -124,7 +158,9 @@ const AuthProvider = ({ children }) => {
                 loading,
                 auth,
                 errorInput,
-                setErrorInput
+                setErrorInput,
+                handlePasswordReset,
+                successMessage
             }}
         >
             {children}

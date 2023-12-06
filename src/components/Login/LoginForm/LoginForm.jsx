@@ -4,6 +4,7 @@ import Register from "../RegisterForm/Register"
 import AuthContext from "./../../../contexts/AuthContext";
 import { ErrorComponent } from "../../Error/ErrorComponent";
 import useError from "../../../hooks/useError";
+import PasswordRestore from "../PasswordRestore/PasswordRestore";
 
 const LoginForm = () => {
 
@@ -11,6 +12,7 @@ const LoginForm = () => {
     const { handleSubmit, handleChange, errorInput, setErrorInput } = useContext(AuthContext);
 
     const [displayRegister, setDisplayRegister] = useState(false)
+    const [displayPasswordRestore, setDisplayPasswordRestore] = useState(false)
 
     const closeRegister = () => {
         setDisplayRegister(false);
@@ -28,11 +30,32 @@ const LoginForm = () => {
                 })
     }
 
+    const showPasswordRestore = () => {
+        setDisplayPasswordRestore(true)
+        setErrorInput({
+            display: false,
+            message: ""
+                })
+    }
+
+    const closePasswordRestore = () => {
+        setDisplayPasswordRestore(false)
+        setErrorInput({
+            display: false,
+            message: ""
+                })
+    }
+
     return (
         <>
         <div className="main">
              {displayRegister ? (
                 <Register closeRegister={closeRegister}/>
+            ) : (
+                <></>
+            )}
+            {displayPasswordRestore ? (
+                <PasswordRestore closePasswordRestore={closePasswordRestore}/>
             ) : (
                 <></>
             )}
@@ -58,6 +81,9 @@ const LoginForm = () => {
                     </div>
                     <div className="register-button">
                         <p>You still don't have an account? <button type="button" onClick={showRegister}>Register here</button></p>
+                    </div>
+                    <div className="register-button">
+                        <p><button type="button" onClick={showPasswordRestore}> Have you forgot your password?  </button></p>
                     </div>
                 </form>
             </div>

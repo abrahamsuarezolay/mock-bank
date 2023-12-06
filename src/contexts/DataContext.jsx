@@ -35,7 +35,7 @@ const DataProvider = ({ children }) => {
           setAccountsData(accounts);
         }) 
         
-      }
+      }  
 
     useEffect(() => {
         if (auth.currentUser) {
