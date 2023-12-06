@@ -1,5 +1,5 @@
 import "./Account.css"
-import { addFunds, withdraw } from "../../../service/accountsService"
+import { addFunds, deleteAccount, withdraw } from "../../../service/accountsService"
 import { useState } from "react"
 import  Balance  from "./Balance/Balance"
 
@@ -37,6 +37,7 @@ const Account = ({user, accountData}) => {
                 <div className="account-buttons">
                     <button type="button" onClick={()=>{handleDisplay(), setDisplayType("withdraw")}}>Withdraw</button>
                     <button type="button" onClick={()=>{handleDisplay(), setDisplayType("add")}}>Add funds</button>
+                    <button type="button" onClick={()=>deleteAccount(user.email, accountData.accountNumber)}>Delete</button>
                 </div>
             </div>
         </div>

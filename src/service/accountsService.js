@@ -1,4 +1,4 @@
-import { collection, doc, setDoc, getDocs, onSnapshot, getDoc, updateDoc } from 'firebase/firestore';
+import { collection, doc, setDoc, getDocs, onSnapshot, getDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { db, auth } from '../API';
 import { accountNumberGenerator } from '../util/numberGenerator';
 
@@ -79,3 +79,14 @@ export const findAccountByUserAndId = async (userEmail, accountId) => {
 
   return accountRef;
 };
+
+export const deleteAccount = async (userEmail, accountNumber) => {
+
+  const userDocRef = doc(usersColl, userEmail);
+  const accountsColl = collection(userDocRef, "accounts");
+  const accountRef = doc(accountsColl, accountNumber);
+  const accountDoc = await getDoc(accountRef, accountNumber);
+
+  await deleteDoc(doc(accountsColl, accountDoc.data().accountNumber));
+
+}
