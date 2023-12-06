@@ -9,7 +9,7 @@ import PasswordRestore from "../PasswordRestore/PasswordRestore";
 const LoginForm = () => {
 
     //AuthContext
-    const { handleSubmit, handleChange, errorInput, setErrorInput } = useContext(AuthContext);
+    const { handleSubmit, handleChange, errorInput, setErrorInput, setSuccessMessage } = useContext(AuthContext);
 
     const [displayRegister, setDisplayRegister] = useState(false)
     const [displayPasswordRestore, setDisplayPasswordRestore] = useState(false)
@@ -32,6 +32,7 @@ const LoginForm = () => {
 
     const showPasswordRestore = () => {
         setDisplayPasswordRestore(true)
+        setSuccessMessage(false)
         setErrorInput({
             display: false,
             message: ""

@@ -65,7 +65,17 @@ const AuthProvider = ({ children }) => {
 
                 addUserToCollection();
 
-                console.log("usuario registrado con exito");
+                setErrorInput({
+                    display: true,
+                    message: "User registered!"
+                })
+
+                setTimeout(() => {
+                    setErrorInput({
+                        display: false,
+                        message: "",
+                    });
+                }, 3000);
             })
             .catch((error) => {
                 if (error.code === "auth/email-already-in-use") {
@@ -160,7 +170,8 @@ const AuthProvider = ({ children }) => {
                 errorInput,
                 setErrorInput,
                 handlePasswordReset,
-                successMessage
+                successMessage,
+                setSuccessMessage
             }}
         >
             {children}
