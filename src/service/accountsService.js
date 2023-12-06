@@ -44,6 +44,10 @@ export const withdraw = async (userEmail, accountNumber, quantity) => {
 
   console.log(initialBalance)
 
+  if (initialBalance < quantity) {
+    throw new Error('Insufficient funds in account');
+  }
+
   await updateDoc(accountRef, {
     balance: initialBalance - parseFloat(quantity)
   });
@@ -52,7 +56,7 @@ export const withdraw = async (userEmail, accountNumber, quantity) => {
 export const getTotalSavingsInAllAccounts = (accountsData) => {
 
   let total = 0;
-  
+
   accountsData.forEach(account => {
     total += account.balance;
   });
@@ -61,7 +65,7 @@ export const getTotalSavingsInAllAccounts = (accountsData) => {
 }
 
 export const getSavingsInAccount = () => {
-  
+
 }
 
 export const findAccountByUserAndId = async (userEmail, accountId) => {

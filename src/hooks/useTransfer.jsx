@@ -62,7 +62,6 @@ const useTransfer = () => {
             setErrorInput({display: false})
         }catch(err){
             return handleError("accountNonExist")
-            
         }
      
     }
