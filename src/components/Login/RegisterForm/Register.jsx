@@ -12,6 +12,7 @@ const Register = ({ closeRegister }) => {
         <div className="overlay">
             <div className="register-form-container">
                 <form method="POST" onSubmit={handleRegister}>
+                    <p className="instructions">Please, enter the data below to register a new user</p>
                     <div className="form-field-register">
                         <label htmlFor="username">Username</label>
                         <input type="text" name="username" onChange={handleChange}></input>
@@ -24,14 +25,16 @@ const Register = ({ closeRegister }) => {
                         <label htmlFor="password">Password</label>
                         <input type="password" name="password" onChange={handleChange}></input>
                     </div>
-                    <div className="register">
-                        <button type="submit">Register</button>
-                        <button type="button" onClick={closeRegister}>Back</button>
-                        {errorInput.display ? (
+                    <div>
+                    {errorInput.display ? (
                             <ErrorComponent type="text" message={errorInput.message} />
                         ) : (
                             <></>
                         )}
+                    </div>
+                    <div className="register">
+                        <button type="submit">Register</button>
+                        <button type="button" onClick={closeRegister}>Back</button>
                     </div>
                 </form>
             </div>

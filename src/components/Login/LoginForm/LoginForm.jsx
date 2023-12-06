@@ -60,7 +60,7 @@ const LoginForm = () => {
             ) : (
                 <></>
             )}
-            <div className={`form-container ${displayRegister ? 'hide' : ''}`}>
+            <div className={`form-container ${displayRegister || displayPasswordRestore ? 'hide' : ''}`}>
                 <form method="POST" onSubmit={handleSubmit}>
                     <div className="form-field">
                         <label htmlFor="email">Email</label>

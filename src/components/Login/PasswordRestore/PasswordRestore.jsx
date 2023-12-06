@@ -16,19 +16,21 @@ const PasswordRestore = ( {closePasswordRestore} ) => {
                         <label htmlFor="email">Email</label>
                         <input type="email" name="email" onChange={handleChange} ></input>
                     </div>
-                    <div className="register">
-                        <button type="submit">Rcover</button>
-                        <button type="button" onClick={closePasswordRestore}>Back</button>
-                        {errorInput.display ? (
+                    <div>
+                    {errorInput.display ? (
                             <ErrorComponent type="text" message={errorInput.message} />
                         ) : (
                             <></>
                         )}
                         {successMessage ? (
-                            <p>Password reset email sent</p>
+                            <p>Email sent. Please follow the instructions.</p>
                         ) : (
                             <></>
                         )}
+                    </div>
+                    <div className="register">
+                        <button type="submit">Recover</button>
+                        <button type="button" onClick={closePasswordRestore}>Back</button>
                     </div>
                 </form>
             </div>

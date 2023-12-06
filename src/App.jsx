@@ -13,6 +13,7 @@ import { DataProvider } from './contexts/DataContext';
 function App() {
   return (
     <div className='app'>
+      <div className="background-container">
       <BrowserRouter>
         <AuthProvider>
           <DataProvider>
@@ -20,6 +21,7 @@ function App() {
           </DataProvider>
         </AuthProvider>
       </BrowserRouter>
+      </div>
     </div>
   );
 }
