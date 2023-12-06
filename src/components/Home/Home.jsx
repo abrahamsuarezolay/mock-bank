@@ -7,6 +7,7 @@ import AccountsMenu from "../AccountsMenu/AccountsMenu";
 import DataContext from "../../contexts/DataContext";
 import StatusMenu from "../StatusMenu/StatusMenu";
 import TransferMenu from "../TransferMenu/TransferMenu";
+import SettingsMenu from "../SettingsMenu/SettingsMenu";
 
 
 const Home = () => {
@@ -42,6 +43,7 @@ const Home = () => {
                     {activeComponent === "status" && <StatusMenu />}
                     {activeComponent === "accounts" && <AccountsMenu />}
                     {activeComponent === "transfer" && <TransferMenu />}
+                    {activeComponent === "settings" && <SettingsMenu />}
                 </div>
                 </>
             )}

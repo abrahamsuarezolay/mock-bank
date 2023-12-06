@@ -31,7 +31,7 @@ const Accounts = () => {
                     ))}
                 </div>
                 <div className="add-account-container">
-                    <button type="button" onClick={() => setDisplayAddAccount(true)}>+</button>
+                    <button type="button" onClick={() => setDisplayAddAccount(true)}>Add account</button>
                 </div>
             </div>
         </>

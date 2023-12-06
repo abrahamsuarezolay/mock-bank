@@ -1,10 +1,13 @@
+import "./SettingsMenu.css"
 
 const SettingsMenu = () => {
 
 
-    return(
-        <div>
-            <h3>Settings</h3>
+    return (
+        <div className="settings-container">
+            <div className="settings-header">
+                <h3>Settings</h3>
+            </div>
         </div>
     )
 
