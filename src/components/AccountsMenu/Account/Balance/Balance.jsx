@@ -13,13 +13,13 @@ const Balance = ({onClose, type, user, accountNumber}) => {
         setAmount(e.target.value)
     }
 
-    const handleConfirm = () => {
+    const handleConfirm = async () => {
         if(type==="add"){
-            addFunds(user.email, accountNumber, amount)
+            await addFunds(user.email, accountNumber, amount)
 
         }else if(type==="withdraw"){
             try{
-                withdraw(user.email, accountNumber, amount)
+                await withdraw(user.email, accountNumber, amount)
             }catch(err){
                 console.log("!!!")
                 if(err.message==="Insufficient funds in account"){
