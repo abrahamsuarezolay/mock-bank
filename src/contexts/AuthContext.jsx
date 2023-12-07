@@ -116,9 +116,8 @@ const AuthProvider = ({ children }) => {
     }
 
     const handleSession = () => {
-        console.log("!! HANDLE SESSION")
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            console.log(user)
+            console.log("!! HANDLE SESSION")
             setUserAuth(auth.currentUser)
             if (user) {
                 

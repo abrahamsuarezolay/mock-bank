@@ -17,8 +17,6 @@ const Home = () => {
     const [activeComponent, setActiveComponent] = useState("status")
 
     handleSession();
-    
-    console.log(userAuth)
 
     const handleComponentDisplay = (component) => {
         setActiveComponent(component);

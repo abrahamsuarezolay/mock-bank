@@ -27,8 +27,6 @@ const DataProvider = ({ children }) => {
 
         const unsubscribe = onSnapshot(accountsCollection, (snapshot) => {
       
-          console.log("Update")
-      
           accounts = []
           snapshot.forEach((doc) => {
             accounts.push(doc.data());
@@ -44,10 +42,9 @@ const DataProvider = ({ children }) => {
 
     useEffect(() => {
         if (auth.currentUser) {
-            getAllAccountsData(userAuth.email)
-            
+            getAllAccountsData(auth.currentUser.email)
         }
-        console.log("Use effect")
+        console.log("Use effect in Data Context")
     }, [auth.currentUser])
 
 
