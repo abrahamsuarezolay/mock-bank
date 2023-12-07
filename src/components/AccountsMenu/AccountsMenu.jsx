@@ -25,11 +25,18 @@ const Accounts = () => {
                 <></>
             )}
             <div className="accounts-container">
-                <div className="accounts-list-container">
-                    {accountsData.map((account, index) => (
-                        <Account key={index} user={user} accountData={account} />
-                    ))}
-                </div>
+                {accountsData.length <= 0 ? (
+                    <>
+                        <h5 className="no-accounts-message">It seems you don't have any accounts yet. Why you don't try to use the button below to add a new one?</h5>
+                    </>
+                ) : (
+                    <>
+                        <div className={`accounts-list-container ${accountsData.length > 4 ? 'bordered' : ''}`}>
+                            {accountsData.map((account, index) => (
+                                <Account key={index} user={user} accountData={account} />
+                            ))}
+                        </div></>
+                )}
                 <div className="add-account-container">
                     <button type="button" onClick={() => setDisplayAddAccount(true)}>Add account</button>
                 </div>
