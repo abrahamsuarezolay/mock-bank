@@ -16,9 +16,9 @@ const StatusMenu = () => {
         <>
             <div className="status-container">
                 <div className="up-part-container">
-                    <h5>{user.username}</h5>
+                    <h4>{user.username}</h4>
                     <div className="balance-display">
-                        <h5>Total balance</h5>
+                        <h4>Total balance</h4>
                         <p>{totalSavings}</p>
                     </div>
                 </div>
