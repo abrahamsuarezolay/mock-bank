@@ -84,7 +84,7 @@ const LoginForm = () => {
                         <p>You still don't have an account? <button type="button" onClick={showRegister}>Register here</button></p>
                     </div>
                     <div className="register-button">
-                        <p><button type="button" onClick={showPasswordRestore}> Have you forgot your password?  </button></p>
+                        <p><button type="button" onClick={showPasswordRestore}> Have you forgotten your password?  </button></p>
                     </div>
                 </form>
             </div>
