@@ -7,7 +7,7 @@ import PieChartComponent from "./PieChart/PieChartComponent"
 
 const StatusMenu = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, userAuth } = useContext(AuthContext)
     const { accountsData } = useContext(DataContext)
 
     const totalSavings = getTotalSavingsInAllAccounts(accountsData);
@@ -16,7 +16,7 @@ const StatusMenu = () => {
         <>
             <div className="status-container">
                 <div className="up-part-container">
-                    <h4>{user.username}</h4>
+                    <h4>{userAuth.displayName}</h4>
                     <div className="balance-display">
                         <h4>Total balance</h4>
                         <p>{totalSavings}</p>

@@ -12,12 +12,13 @@ import SettingsMenu from "../SettingsMenu/SettingsMenu";
 
 const Home = () => {
 
-    const { handleSignOut, handleSession, loading, user } = useContext(AuthContext)
-    const { accountsData, getAccountsData } = useContext(DataContext)
-    
-    handleSession();
+    const { handleSignOut, handleSession, loading, user, userAuth } = useContext(AuthContext)
 
     const [activeComponent, setActiveComponent] = useState("status")
+
+    handleSession();
+    
+    console.log(userAuth)
 
     const handleComponentDisplay = (component) => {
         setActiveComponent(component);
@@ -31,7 +32,7 @@ const Home = () => {
                 <>
                 <header>
                     <div className="welcome-container">
-                        <h1 className="welcome">Welcome {user.username}</h1>
+                        <h1 className="welcome">Welcome {userAuth.displayName}</h1>
                     </div>
                 </header>
                 <div>

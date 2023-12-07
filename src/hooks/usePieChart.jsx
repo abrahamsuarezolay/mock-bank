@@ -6,7 +6,6 @@ const usePieChart = () => {
     const { accountsData } = useContext(DataContext)
     const [ pieData, setPieData ] = useState([])
 
-    
     const fillPieData = () =>{
 
         const a = []
@@ -22,9 +21,8 @@ const usePieChart = () => {
     }
 
     useEffect(()=>{
-        console.log("UseEffect PieChart")
-        fillPieData()
-    }, [])
+        fillPieData()   
+    }, [accountsData])
 
 
     return { pieData };

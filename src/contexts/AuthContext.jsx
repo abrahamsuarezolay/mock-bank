@@ -1,5 +1,5 @@
 // AuthContext.js
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { db, auth } from '../API';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, sendPasswordResetEmail } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
@@ -20,6 +20,8 @@ const AuthProvider = ({ children }) => {
         email: '',
         password: '',
     });
+    
+    const[userAuth, setUserAuth] = useState(null)
 
     const handleChange = (e) => {
         setUser({
@@ -114,14 +116,20 @@ const AuthProvider = ({ children }) => {
     }
 
     const handleSession = () => {
+        console.log("!! HANDLE SESSION")
         const unsubscribe = onAuthStateChanged(auth, (user) => {
+            console.log(user)
+            setUserAuth(auth.currentUser)
             if (user) {
+                
                 setLoading(false)
             } else {
                 navigate("/")
             }
         })
     }
+
+    
 
     const checkIfUserExists = async (email) => {
         const userRef = doc(db, "users", email)
@@ -168,6 +176,7 @@ const AuthProvider = ({ children }) => {
                 handleSession,
                 loading,
                 auth,
+                userAuth,
                 errorInput,
                 setErrorInput,
                 handlePasswordReset,

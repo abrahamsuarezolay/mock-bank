@@ -7,7 +7,7 @@ const DataContext = createContext()
 
 const DataProvider = ({ children }) => {
 
-    const { user, auth } = useContext(AuthContext)
+    const { user, auth, userAuth } = useContext(AuthContext)
     const usersColl = collection(db, "users")
     const [accountsData, setAccountsData] = useState([]);
 
@@ -22,6 +22,8 @@ const DataProvider = ({ children }) => {
         accountsDocs.forEach((doc) => {
           accounts.push(doc.data());
         })
+
+      
 
         const unsubscribe = onSnapshot(accountsCollection, (snapshot) => {
       
@@ -42,10 +44,9 @@ const DataProvider = ({ children }) => {
 
     useEffect(() => {
         if (auth.currentUser) {
-            getAllAccountsData(user.email)
+            getAllAccountsData(userAuth.email)
             
         }
-
         console.log("Use effect")
     }, [auth.currentUser])
 

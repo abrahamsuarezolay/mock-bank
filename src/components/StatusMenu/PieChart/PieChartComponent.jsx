@@ -16,7 +16,7 @@ const PieChartComponent = () => {
     {pieData.length == 0 ? (
       <>
       <h6>Accounts status</h6>
-      <p>It seems you don't have any accounts yet. Why don't you try to go to the Accounts Menu and create a new one?</p>
+      <p>It seems you don't have any accounts yet. Why don't you try to go to the Accounts Menu and create a new account?</p>
       </>
     ) : (
       <>
