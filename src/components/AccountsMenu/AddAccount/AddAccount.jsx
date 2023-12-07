@@ -9,11 +9,9 @@ const AddAccount = ({ user, onClose }) => {
     const handleAccountNameChange = (e) => {
         e.preventDefault()
         setAccountName(e.target.value);
-        console.log(accountName);
     }
 
     const handleAddAccount = (e) => {
-console.log(user)
         e.preventDefault()
         addAccount(user.email, accountName)
     }

@@ -42,8 +42,6 @@ export const withdraw = async (userEmail, accountNumber, quantity) => {
 
   let initialBalance = accountDoc.data().balance;
 
-  console.log(initialBalance)
-
   if (initialBalance < quantity) {
     throw new Error('Insufficient funds in account');
   }

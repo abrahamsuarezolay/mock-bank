@@ -43,6 +43,7 @@ const DataProvider = ({ children }) => {
     useEffect(() => {
         if (auth.currentUser) {
             getAllAccountsData(user.email)
+            
         }
 
         console.log("Use effect")

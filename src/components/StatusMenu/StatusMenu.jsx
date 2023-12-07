@@ -3,6 +3,7 @@ import { useContext } from "react"
 import AuthContext from "../../contexts/AuthContext"
 import DataContext from "../../contexts/DataContext"
 import { getTotalSavingsInAllAccounts } from "../../service/accountsService"
+import PieChartComponent from "./PieChart/PieChartComponent"
 
 const StatusMenu = () => {
 
@@ -19,6 +20,11 @@ const StatusMenu = () => {
                     <div className="balance-display">
                         <h5>Total balance</h5>
                         <p>{totalSavings}</p>
+                    </div>
+                </div>
+                <div className="body-status-container">
+                    <div className="savings-in-accounts">
+                       <PieChartComponent />
                     </div>
                 </div>
             </div>

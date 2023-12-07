@@ -20,3 +20,21 @@
     justify-content: end;
     align-items: end;
 }
+
+.body-status-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.savings-in-accounts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    margin-top: 7%;
+}
