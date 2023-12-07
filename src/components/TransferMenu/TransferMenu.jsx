@@ -31,6 +31,7 @@ const TransferMenu = () => {
                 <label htmlFor="amount">Introduce the amount to transfer</label>
                 <input type="number" name="amount" onChange={handleChange}/>
                 <button type="submit">Transfer</button>
+                <div className="transfer-result">
                 {successMessage ? (
                     <p>Transfer completed!</p>
                 ) : (
@@ -41,6 +42,7 @@ const TransferMenu = () => {
                 ) : (
                     <></>
                 )}
+                </div>
             </div>
         </div>
         </form>

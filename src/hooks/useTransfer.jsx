@@ -70,6 +70,9 @@ const useTransfer = () => {
             await transfer(user, transferInfo)
             setErrorInput({ display: false })
             setSuccessMessage(true);
+            setTimeout(()=>{
+                setSuccessMessage(false)
+            }, 3000)
         } catch (err) {
             if (err.message === 'Insufficient funds for the transfer') {
                 // Handle insufficient funds error

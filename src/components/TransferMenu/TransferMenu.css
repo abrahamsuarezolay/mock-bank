@@ -21,9 +21,29 @@
     flex-direction: column;
 }
 
+.your-account select {
+    background-color: white;
+    color: black;
+    padding: 3%;
+    width: 12em;
+    border: solid white 1px;
+    border-radius: 10px;
+}
+
 .destination-account {
     display: flex;
     flex-direction: column;
+}
+
+.destination-account input {
+    background-color: white;
+    color: black;
+    padding: 3%;
+    width: 12em;
+    border: solid white 1px;
+    border-radius: 10px;
+    margin-bottom: 3%;
+    outline: none;
 }
 
 .transfer-menu-input {
@@ -38,6 +58,25 @@
     border: none;
     color: white;
     border-bottom: solid white 1px;
-    background-color: rgb(37, 37, 37);
+    background-color: transparent;
+    margin-top: 2%;
+}
+
+.transfer-menu-input button{
+    background-color: transparent;
+    color: white;
+    border: solid white 1px;
+    border-radius: 30px;
+    padding: 0.5% 4% 0.5% 4%;
+    margin-top: 2%;
+    transition: all .2s ease-in-out;
+}
+
+.transfer-menu-input button:hover{
+    background-color: white;
+    color: black;
+}
+
+.transfer-result{
     margin-top: 2%;
 }
