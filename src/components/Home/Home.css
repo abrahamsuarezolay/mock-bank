@@ -1,11 +1,8 @@
 .welcome-container {
     display: flex;
     flex-direction: row;
-    margin: 2% 0% 0% 5%;
-}
-
-.welcome{
-
+    margin: 2% 0% 0% 0%;
+    justify-content: center;
 }
 
 .component-container {

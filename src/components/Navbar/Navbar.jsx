@@ -13,7 +13,7 @@ const Navbar = ({handleSignOut, handleComponentDisplay}) => {
                 <li><img src={home} onClick={()=>{handleComponentDisplay("status")}}/></li>
                 <li><img src={accounts} onClick={()=>{handleComponentDisplay("accounts")}}/></li>
                 <li><img src={transfer} onClick={()=>{handleComponentDisplay("transfer")}}/></li>
-                <li><img src={gear} onClick={()=>{handleComponentDisplay("settings")}}/></li>
+                {/* <li><img src={gear} onClick={()=>{handleComponentDisplay("settings")}}/></li> */}
                 <li><img src={exit} onClick={handleSignOut}/></li>
             </ul>
         </div>

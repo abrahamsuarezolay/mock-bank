@@ -1,12 +1,12 @@
 import { useState } from "react"
 import "./Balance.css"
 import { addFunds, withdraw } from "../../../../service/accountsService"
-import  useError  from "./../../../../hooks/useError"
+import useError from "./../../../../hooks/useError"
 import { ErrorComponent } from "../../../Error/ErrorComponent"
 
-const Balance = ({onClose, type, user, accountNumber}) => {
+const Balance = ({ onClose, type, user, accountNumber }) => {
 
-    const[amount, setAmount] = useState(0)
+    const [amount, setAmount] = useState(0)
     const [errorDisplay, setErrorDisplay] = useState(false)
 
     const handleAmountChange = (e) => {
@@ -14,16 +14,16 @@ const Balance = ({onClose, type, user, accountNumber}) => {
     }
 
     const handleConfirm = async () => {
-        if(type==="add"){
+        if (type === "add") {
             await addFunds(user.email, accountNumber, amount)
 
-        }else if(type==="withdraw"){
-            try{
+        } else if (type === "withdraw") {
+            try {
                 await withdraw(user.email, accountNumber, amount)
-            }catch(err){
+            } catch (err) {
                 console.log("!!!")
-                if(err.message==="Insufficient funds in account"){
-                return setErrorDisplay(true);
+                if (err.message === "Insufficient funds in account") {
+                    return setErrorDisplay(true);
                 }
             }
         }
@@ -39,13 +39,18 @@ const Balance = ({onClose, type, user, accountNumber}) => {
                 <div className="amount-buttons">
                     <button type="submit" onClick={handleConfirm}>Confirm</button>
                     <button type="submit" onClick={onClose}>Back</button>
-                    {errorDisplay? (
-                        <ErrorComponent type={"text"} message={"Insufficient funds for withdraw"} />
-                    ) : (
-                        <></>
-                    )}
+                </div>
+                <div>
+
+                <div className="d-flex mt-4">
+                {errorDisplay ? (
+                    <ErrorComponent type={"text"} message={"Insufficient funds for withdraw"} />
+                ) : (
+                    <></>
+                )}
                 </div>
             </div>
+        </div>
         </div>
     )
     
