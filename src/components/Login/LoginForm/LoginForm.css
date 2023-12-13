@@ -1,0 +1,129 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 22em;
+}
+
+.form-container.hide {
+    animation-name: hide-login-form;
+    animation-duration: .2s;
+    opacity: 0;
+  }
+
+@keyframes hide-login-form{
+    0%{
+        opacity: 1;
+    }
+    20%{
+        opacity: 0.8;
+    }
+    40%{
+        opacity: 0.6;
+    }
+    60%{
+        opacity: 0.4;
+    }   
+    80%{
+        opacity: 0.2;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
+}
+
+.form-field {
+    width: 80%;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.form-field label {
+    margin-bottom: 1%;
+    font-weight: 600;
+}
+
+.form-field input {
+    background-color: transparent;
+    border-radius: 3px;
+    padding: 3.5%;
+    border: solid rgba(255, 255, 255, 0.75) 1px;
+    color: white;
+    outline: none;
+}
+
+.form-field input:hover {
+    border: solid rgba(255, 255, 255, 1) 1px;
+}
+
+.form-field input::placeholder {
+    color: white;
+  }
+
+.form-container input:focus{
+    background-color: transparent;
+    border: solid rgb(255, 255, 255) 2px;
+    padding: 3.1%;
+} 
+
+.login-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    width: 100%;
+}
+
+.login-button button{
+    background-color: transparent;
+    width: 80%;
+    padding: 3%;
+    color: white;
+    border-radius: 30px;
+    border: solid rgba(255, 255, 255, 1) 1px;
+    transition: all .2s ease-in-out;
+}
+
+.login-button button:hover{
+    background-color: white;
+    color: black;
+}
+
+.register-button{
+   overflow: visible;
+   text-align: center;
+   margin: 0% 3% 0% 3%;
+}
+
+.register-button button{
+    background-color: transparent;
+    border: none;
+    color: inherit;
+}
+
+.register-button button:hover{
+    font-weight: 500;
+}

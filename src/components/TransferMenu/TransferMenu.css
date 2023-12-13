@@ -1,0 +1,82 @@
+.transfer-menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 4%;
+    height: 100%;
+    animation: load .4s;
+
+}
+
+.transfer-menu-up {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1% 3% 0% 3%;
+}
+
+.your-account {
+    display: flex;
+    flex-direction: column;
+}
+
+.your-account select {
+    background-color: white;
+    color: black;
+    padding: 3%;
+    width: 12em;
+    border: solid white 1px;
+    border-radius: 10px;
+}
+
+.destination-account {
+    display: flex;
+    flex-direction: column;
+}
+
+.destination-account input {
+    background-color: white;
+    color: black;
+    padding: 3%;
+    width: 12em;
+    border: solid white 1px;
+    border-radius: 10px;
+    margin-bottom: 3%;
+    outline: none;
+}
+
+.transfer-menu-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.transfer-menu-input input{
+    outline: none;
+    border: none;
+    color: white;
+    border-bottom: solid white 1px;
+    background-color: transparent;
+    margin-top: 2%;
+}
+
+.transfer-menu-input button{
+    background-color: transparent;
+    color: white;
+    border: solid white 1px;
+    border-radius: 30px;
+    padding: 0.5% 4% 0.5% 4%;
+    margin-top: 2%;
+    transition: all .2s ease-in-out;
+}
+
+.transfer-menu-input button:hover{
+    background-color: white;
+    color: black;
+}
+
+.transfer-result{
+    margin-top: 2%;
+}

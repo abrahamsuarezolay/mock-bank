@@ -1,0 +1,127 @@
+.overlay{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.register-form-container{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-shrink: 1;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    animation-name: register-appear;
+    animation-duration: .3s;
+}
+
+@keyframes register-appear {
+    0%{
+        margin-top: 100%;
+        opacity: 0;
+        margin-bottom: 0%;
+    }
+    20%{
+        margin-top: 75%;
+        opacity: 0.2;
+        margin-bottom: 0%;
+    }
+    40%{
+        margin-top: 60%;
+        opacity: 0.4;
+        margin-bottom: 0%;
+    }
+    60%{
+        margin-top: 40%;
+        opacity: 0.6;
+        margin-bottom: 0%;
+    }
+    80%{
+        margin-top: 15%;
+        opacity: 0.8;
+        margin-bottom: 0%;
+    }
+    100%{
+        margin-top: 5%;
+        opacity: 1;
+    }
+}
+
+.register-form-container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22em;
+    border: solid white 1px;
+}
+
+.register-form-container p{
+    margin: 5% 5% 8% 8%;
+}
+
+.form-field-register {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.form-field-register label {
+    margin-bottom: 1%;
+}
+
+.form-field-register input {
+    background-color: transparent;
+    border-radius: 3px;
+    padding: 3.5%;
+    border: solid rgba(255, 255, 255, 0.75) 1px;
+    color: white;
+    outline: none;
+}
+
+.form-field-register input:hover {
+    border: solid rgba(255, 255, 255, 1) 1px;
+}
+
+.form-field-register input::placeholder {
+    color: white;
+  }
+
+.form-field-register input:focus{
+    background-color: transparent;
+    border: solid rgb(255, 255, 255) 2px;
+    padding: 3.1%;
+} 
+
+.register {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5% 0% 5% 0%;
+}
+
+.register button{
+    background-color: transparent;
+    color: white;
+    width: 35%;
+    padding: 3% 0% 3% 0%;
+    border-radius: 30px;
+    border: solid rgba(255, 255, 255, 1) 1px;
+    transition: all .2s ease-in-out;
+}
+
+.register button:hover{
+    background-color: white;
+    color: black;
+}

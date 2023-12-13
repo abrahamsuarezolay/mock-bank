@@ -1,0 +1,69 @@
+.amount-overlay {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 110vw;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    animation: load .4s;
+}
+
+.amount-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 22em;
+    height: auto;
+    border-radius: 3px;
+    border: solid white 1px;
+}
+
+.amount-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 12em;
+}
+
+.amount-buttons button {
+    background-color: transparent;
+    border: solid white 1px;
+    border-radius: 30px;
+    color: white;
+    margin-top: 1.5em;
+    padding: 3% 6% 3% 6%;
+    transition: all .2s ease-in-out;
+}
+
+.amount-buttons button:hover {
+    background-color: white;
+    color: black;
+}
+
+.amount-buttons input {
+    background-color: transparent;
+    border-radius: 3px;
+    border: none;
+    border-bottom: solid rgba(255, 255, 255, 0.75) 1px;
+    color: white;
+    outline: none;
+}
+
+.amount-buttons input:hover {
+    border-bottom: solid rgba(255, 255, 255, 1) 1px;
+}
+
+.amount-buttons input::placeholder {
+    color: white;
+}
+
+.amount-buttons input:focus {
+    background-color: transparent;
+    border-bottom: solid rgb(255, 255, 255) 2px;
+}

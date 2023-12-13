@@ -1,0 +1,44 @@
+.status-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 20em;
+    margin: 4%;
+    animation: load .4s;
+}
+
+.status-container h4{
+    font-size: 1em;
+}
+
+.up-part-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1% 3% 0% 3%;
+}
+
+.balance-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+}
+
+.body-status-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.savings-in-accounts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    margin-top: 7%;
+}

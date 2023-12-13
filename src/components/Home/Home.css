@@ -1,0 +1,16 @@
+.welcome-container {
+    display: flex;
+    flex-direction: row;
+    margin: 2% 0% 0% 0%;
+    justify-content: center;
+}
+
+.component-container {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 30em;
+    margin: 5% 10% 5% 10%;
+    border: solid white 2px;
+    border-radius: 5px;
+}
