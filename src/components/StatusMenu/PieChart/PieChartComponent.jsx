@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer, LabelList, Label} from 'recharts';
 import { useContext } from "react"
-import DataContext from "../../../contexts/DataContext"
+import DataContext from "../../../providers/DataContext"
 import usePieChart from '../../../hooks/usePieChart';
 
 

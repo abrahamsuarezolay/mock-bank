@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import DataContext from "../../contexts/DataContext";
+import DataContext from "../../providers/DataContext";
 import "./TransferMenu.css"
 import useTransfer from "../../hooks/useTransfer";
 import { ErrorComponent } from "../Error/ErrorComponent";

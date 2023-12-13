@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { transfer } from "../service/transferService";
-import AuthContext from "../contexts/AuthContext";
+import AuthContext from "../providers/AuthContext";
 import useError from "./useError";
 
 

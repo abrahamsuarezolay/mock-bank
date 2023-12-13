@@ -1,6 +1,6 @@
 import { collection, doc, setDoc, getDocs, onSnapshot, getDoc, updateDoc } from 'firebase/firestore';
 import { findAccountByUserAndId, getSavingsInAccount } from './accountsService';
-import { db, auth } from '../API';
+import { db } from '../config';
 
 const usersColl = collection(db, "users")
 

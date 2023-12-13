@@ -1,7 +1,7 @@
 import "./StatusMenu.css"
 import { useContext } from "react"
-import AuthContext from "../../contexts/AuthContext"
-import DataContext from "../../contexts/DataContext"
+import AuthContext from "../../providers/AuthContext"
+import DataContext from "../../providers/DataContext"
 import { getTotalSavingsInAllAccounts } from "../../service/accountsService"
 import PieChartComponent from "./PieChart/PieChartComponent"
 

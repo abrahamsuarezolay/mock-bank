@@ -2,10 +2,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import "./App.css"
-import { AuthProvider } from './contexts/AuthContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { AuthProvider } from './providers/AuthContext';
+import { DataProvider } from './providers/DataContext';
 import BaseRoutes from './routes/BaseRoutes';
-import { DataProvider } from './contexts/DataContext';
 
 function App() {
   return (

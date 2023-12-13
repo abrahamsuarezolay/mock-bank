@@ -1,7 +1,7 @@
 import "./LoginForm.css";
 import { useContext, useEffect, useState } from "react";
 import Register from "../RegisterForm/Register"
-import AuthContext from "./../../../contexts/AuthContext";
+import AuthContext from "../../../providers/AuthContext";
 import { ErrorComponent } from "../../Error/ErrorComponent";
 import useError from "../../../hooks/useError";
 import PasswordRestore from "../PasswordRestore/PasswordRestore";

@@ -1,6 +1,6 @@
 // AuthContext.js
 import React, { createContext, useEffect, useState } from 'react';
-import { db, auth } from '../API';
+import { db, auth } from '../config';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, sendPasswordResetEmail } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { collection, setDoc, doc, addDoc, getDoc } from "firebase/firestore";

@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
-import { db, auth } from "../../../API/index"
-import AuthContext from "../../../contexts/AuthContext";
+import AuthContext from "../../../providers/AuthContext";
 import { ErrorComponent } from "../../Error/ErrorComponent";
 import "./Register.css"
 

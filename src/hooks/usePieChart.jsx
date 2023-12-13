@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import DataContext from "../contexts/DataContext";
+import DataContext from "../providers/DataContext";
 
 const usePieChart = () => { 
 

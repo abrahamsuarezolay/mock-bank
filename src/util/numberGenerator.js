@@ -1,6 +1,5 @@
 //Random number generator for the account numbers
 
-
 export const accountNumberGenerator = () => {
 
     // Generate four random numbers between 0 and 9999

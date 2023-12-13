@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import AuthContext from "../../../contexts/AuthContext";
+import AuthContext from "../../../providers/AuthContext";
 import { ErrorComponent } from "../../Error/ErrorComponent";
 
 

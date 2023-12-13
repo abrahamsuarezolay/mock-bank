@@ -1,5 +1,5 @@
 import { collection, doc, setDoc, getDocs, onSnapshot, getDoc, updateDoc, deleteDoc } from 'firebase/firestore';
-import { db, auth } from '../API';
+import { db, auth } from '../config';
 import { accountNumberGenerator } from '../util/numberGenerator';
 
 const usersColl = collection(db, "users")

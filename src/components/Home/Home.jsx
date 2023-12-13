@@ -1,10 +1,10 @@
 import "./Home.css"
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../../contexts/AuthContext";
+import AuthContext from "../../providers/AuthContext";
 import Navbar from "../Navbar/Navbar";
 import AccountsMenu from "../AccountsMenu/AccountsMenu";
-import DataContext from "../../contexts/DataContext";
+import DataContext from "../../providers/DataContext";
 import StatusMenu from "../StatusMenu/StatusMenu";
 import TransferMenu from "../TransferMenu/TransferMenu";
 import SettingsMenu from "../SettingsMenu/SettingsMenu";

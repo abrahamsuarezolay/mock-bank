@@ -1,10 +1,10 @@
 import "./AccountsMenu.css"
 import { useContext, useState } from "react"
-import AuthContext from "../../contexts/AuthContext"
+import AuthContext from "../../providers/AuthContext"
 import { addAccount } from "../../service/accountsService"
 import Account from "./Account/Account"
 import AddAccount from "./AddAccount/AddAccount"
-import DataContext from "../../contexts/DataContext"
+import DataContext from "../../providers/DataContext"
 
 const Accounts = () => {
 
