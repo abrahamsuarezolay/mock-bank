@@ -1,18 +1,12 @@
 {
-    "hosting": {
-      "public": "build",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    "firestore": {
-      // Configuraciones de Firestore, si es necesario
-    },
-    "auth": {
-      // Configuraciones de autenticación, si es necesario
-    }
-  }
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  "firestore": {},
+  "auth": {}
+}
